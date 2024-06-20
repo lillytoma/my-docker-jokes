@@ -15,7 +15,7 @@ jobs:
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKERHUB_USERNAME}}
-        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
+        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_TOKEN}}
       run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag lilyanntoma/my-docker-jokes:v1
