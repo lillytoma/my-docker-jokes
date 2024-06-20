@@ -20,3 +20,6 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag lilyanntoma/my-docker-jokes:v1
+    - name: Docker Push
+      run: docker push your_docker_hub_username/docker_hub_repo_name:tag_name
