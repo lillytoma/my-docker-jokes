@@ -22,4 +22,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag lilyanntoma/my-docker-jokes:v1
     - name: Docker Push
-      run: docker push your_docker_hub_username/docker_hub_repo_name:tag_name
+      run: docker push lilyanntoma/my-docker-jokes:v1
