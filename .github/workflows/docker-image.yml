@@ -7,9 +7,7 @@ on:
     branches: [ develop ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -18,9 +16,9 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.DOCKERHUB_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKERHUB_PASSWORD}}
-      run:
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag lilyanntoma/my-docker-jokes:v1
     - name: Docker Push
       run: docker push lilyanntoma/my-docker-jokes:v1
+
